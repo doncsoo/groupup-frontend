@@ -1,0 +1,19 @@
+.user-panel-container
+{
+    width: 45vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.user-manager {
+    max-width: 45vw;
+    border: 5px white solid;
+    border-radius: 25px;
+    padding: 10px;
+
+    h1 {
+        color: white;
+        text-shadow: 2px 2px #292929;
+    }
+}

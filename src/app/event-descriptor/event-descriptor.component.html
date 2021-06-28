@@ -1,0 +1,108 @@
+<div class="event-desc-container">
+    <div *ngIf="!loading()" class="event-descriptor">
+        <div class="panel-piece"></div>
+        <div class="colorbase"><img [src]="imgsrc" height="250" width="400"></div>
+        <h1 class="title">{{ event.title }}</h1>
+        <div class="desc-div">
+            <p class="lexend">{{ event.description }}</p>
+        </div>
+        <div class="date-div">
+            <div *ngIf="event.date != null" style="padding: 5px;">
+                <h2>{{ monthday }}</h2>
+                <h4>{{ time }}</h4>
+            </div>
+            <div *ngIf="event.date == null" style="padding: 5px;">
+                <h4>Nincs meghatározva</h4>
+            </div>
+            <div class="calendar"></div>
+        </div>
+        <div>
+            <a (click)="showMore()" class="btn"><span>Részletek</span></a>
+        </div>
+    </div>
+    <div *ngIf="!loading()" class="response">
+        <a *ngIf="response == 'accept' || response == 'no'" (click)="resetResponse()" class="btn disp-top-right"><span>Módosítás</span></a>
+        <div *ngIf="response == 'pending'">
+            <h2 class="ask-text">Akarsz jönni az eseményre?</h2>
+            <div class="resp-selector">
+                <div (click)="respondWithYes()" class="accept"></div>
+                <div (click)="respondWithNo()" class="no"></div>
+            </div>
+        </div>
+        <div *ngIf="response == 'accept'">
+            <div class="accept"></div>
+            <h2 class="tell-text">Te <span style="color:rgb(0, 245, 0)">RÉSZT VESZEL</span> ezen az eseményen</h2>
+        </div>
+        <div *ngIf="response == 'no'">
+            <div class="no"></div>
+            <h2 class="tell-text">Te <span style="color:rgb(245, 0, 0)">NEM VESZEL RÉSZT</span> ezen az eseményen</h2>
+        </div>
+    </div>
+    <div *ngIf="event.voting != null" class="vote-div">
+        <h1>SZAVAZÁS</h1>
+        <h2>{{ event.voting.question }}</h2>
+        <div *ngIf="!didVote">
+            <div *ngFor="let choice of event.voting.replies; index as i;">
+                <input [(ngModel)]="selected" type="radio" [id]="i" name="group" [value]="i">
+                <label class="lexend" [for]="i">{{ choice.name }}</label><br>
+            </div>
+        </div>
+        <div *ngIf="didVote">
+            <div *ngFor="let choice of event.voting.replies; index as i;">
+                <label class="lexend" [for]="i">{{ choice.name }} - {{ choice.votes }} szavazat</label><br>
+            </div>
+        </div>
+        <a (click)="vote()" *ngIf="!didVote" class="btn"><span>Szavazás</span></a>
+    </div>
+    <div *ngIf="!loading()" class="announcement-div">
+        <h1>BEJELENTÉSEK</h1>
+        <div *ngFor="let ann of event.announcements" class="announcement">
+            <h5>{{ ann.timestamp | dateConverter }}</h5>
+            <p class="lexend">{{ ann.message }}</p>
+        </div>
+    </div>
+    <div *ngIf="attendantsData != null" class="attendants">
+        <div tooltip="Résztvevők" class="attend-logo"></div>
+        <div class="person-list">
+            <div *ngFor="let attendant of attendantsData" class="person">
+                <img [tooltip]="attendant.fullname" src="../../assets/default-avatar.png" width="60" height="60">
+                <div [class]="determineAttendance(attendant)"></div>
+            </div>
+        </div>
+    </div>
+    <div *ngIf="loading()" class="loading-box"></div>
+</div>
+
+<div [style.display]="shown" class="modal">
+    <div class="extra-info">
+        <h1>További információk</h1>
+        <table>
+            <tr *ngIf="event.info.price != undefined">
+              <td>Esemény ára</td>
+              <td>{{ event.info.price | currency: 'HUF':'symbol-narrow':'.0-0'}}</td>
+            </tr>
+            <tr *ngIf="event.info.duration != undefined">
+              <td>Esemény időtartama</td>
+              <td>{{ event.info.duration }}</td>
+            </tr>
+            <tr *ngIf="event.info.website != undefined">
+              <td>Weboldal</td>
+              <td><a target="_blank" [href]="event.info.website">{{ event.info.website }}</a></td>
+            </tr>
+            <tr *ngIf="event.info.vaccinationRequired != undefined">
+              <td>Oltási igazolvány szükséges?</td>
+              <td><b>{{ event.info.vaccinationRequired | booleanModify }}</b></td>
+            </tr>
+            <tr *ngIf="event.info.entryInfo != undefined">
+              <td>Belépési információk</td>
+              <td>{{ event.info.entryInfo }}</td>
+            </tr>
+            <tr *ngIf="event.info.entryInfo != undefined">
+              <td>Utazási információk</td>
+              <td>{{ event.info.travelInfo }}</td>
+            </tr>
+          </table>
+          <a (click)="showMore()" class="btn"><span>Vissza</span></a>
+    </div>
+</div>
+

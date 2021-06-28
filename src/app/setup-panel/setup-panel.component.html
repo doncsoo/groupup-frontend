@@ -1,0 +1,52 @@
+<div class="setup-panel-container">
+    <div class="main-panel">
+        <div *ngIf="task == 'register'">
+            <div *ngIf="!loading && currentstep == 0">
+                <h2 class="lexend">Néhány alapvető információra van szükségünk.</h2>
+                <label class="lexend">Felhasználónév
+                </label>
+                <br>
+                <input name="username" id="username" class="text-input lexend" [(ngModel)]="username">
+                <br>
+                <label class="lexend">Jelszó</label>
+                <br>
+                <input type="password" name="password" id="password" class="text-input lexend" [(ngModel)]="password">
+                <br>
+                <label class="lexend">Teljes név</label>
+                <br>
+                <input name="fullname" id="fullname" class="text-input lexend" [(ngModel)]="fullname">
+                <br>
+                <div (click)="sendRegister()" class="next"></div>
+            </div>
+            <div *ngIf="!loading && currentstep == 1">
+                <h2 class="lexend">Van védettségi igazolványod?</h2>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <input type="checkbox" [(ngModel)]="vaccinated">
+                <h3 style="display:inline">Igen, van igazolványom.</h3>
+                <br>
+                <div (click)="print()" *ngIf="vaccinated" id="vaccinationdate">
+                    <label class="lexend">Első oltás dátuma</label>
+                    <br>
+                    <input type="date" [(ngModel)]="vaccinatedTimestamp">
+                </div>
+                <div (click)="setVaccination()" class="next"></div>
+            </div>
+            <div *ngIf="currentstep == 2">
+                <h2 class="lexend">Sikeres regisztráció!</h2>
+                <h3 class="lexend">Reméljük minél több eseményben résztveszel! :)</h3>
+                <a [routerLink]="'/login'"><div class="next"></div></a>
+            </div>
+            <div *ngIf="loading" class="loading"></div>
+        </div>
+        <div *ngIf="task == 'newevent'">
+            <h3>New Event</h3>
+        </div>
+    </div>
+    <div class="indicator">
+        <div *ngFor="let step of stepStatus" [class]="step"></div>
+    </div>
+</div>

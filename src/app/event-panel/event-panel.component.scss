@@ -1,0 +1,65 @@
+div {
+    overflow: visible;
+}
+.event-panel {
+  text-align: center;
+}
+.base {
+    height: 125px;
+    width: 700px;
+    background-color: white;
+    display: inline-block;
+    z-index: -1;
+    box-shadow: 3px 3px 8px #292929;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+  
+.colorbase {
+    height: 125px;
+    width: 200px;
+    background-color: rgb(0, 31, 231);
+    position: relative;
+    float: left;
+    transform: rotate(-10deg);
+    box-shadow: 3px 3px 8px #292929;
+}
+
+.accept
+{
+    background-image: url(../../assets/okay.png);
+    background-size: 125px 125px;
+    width: 125px;
+    height: 125px;
+    position: relative;
+    float: right;
+}
+
+.no
+{
+    background-image: url(../../assets/no.png);
+    background-size: 125px 125px;
+    width: 125px;
+    height: 125px;
+    position: relative;
+    float: right;
+}
+
+.pending
+{
+    background-image: url(../../assets/pending.png);
+    background-size: 125px 125px;
+    width: 125px;
+    height: 125px;
+    position: relative;
+    float: right;
+}
+
+.title {
+  position: relative;
+  float: left;
+  margin-left: 5px;
+}
+  
+  

@@ -1,0 +1,101 @@
+.notif-container {
+    position: fixed;
+    display: flex;
+    flex-direction: column-reverse;
+    bottom: 0;
+    right: 0;
+    width: 350px;
+    height: 400px;
+    overflow: visible;
+
+    div {
+        overflow: visible;
+    }
+}
+
+.notification-normal {
+    background: linear-gradient(90deg, rgba(0,27,89,1) 0%, rgba(12,64,164,1) 25%, rgba(0,212,255,1) 100%);
+    height: 100px;
+    width: 350px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 8px #292929;
+
+    h3 {
+        margin: 0;
+        color: white;
+        margin-left: 10px;
+        position: relative;
+        top: 40%;
+        transform: translateY(-60%);
+        text-shadow: 2px 2px #292929;
+    }
+
+    .content {
+        height: 100px;
+        width: 350px;
+        background-image: url(../assets/bg-element-new.png);
+        background-size: 150px 150px;
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: center;
+    }
+}
+
+.notification-bad {
+    background: linear-gradient(270deg, rgba(255,234,0,1) 0%, rgba(255,106,0,1) 25%, rgba(255,0,0,1) 100%);
+    height: 100px;
+    width: 350px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    box-shadow: 3px 3px 8px #292929;
+
+    h3 {
+        margin: 0;
+        color: white;
+        margin-left: 10px;
+        position: relative;
+        top: 40%;
+        transform: translateY(-60%);
+        text-shadow: 2px 2px #292929;
+    }
+
+    .content {
+        height: 100px;
+        width: 350px;
+        background-image: url(../assets/bg-element-new.png);
+        background-size: 150px 150px;
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: center;
+    }
+}
+
+.notification-good {
+    height: 100px;
+    width: 350px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: linear-gradient(270deg, rgba(169,255,0,1) 0%, rgba(19,255,0,1) 25%, rgba(37,166,0,1) 100%);
+    box-shadow: 3px 3px 8px #292929;
+
+    h3 {
+        margin: 0;
+        color: white;
+        margin-left: 10px;
+        position: relative;
+        top: 40%;
+        transform: translateY(-60%);
+        text-shadow: 2px 2px #292929;
+    }
+
+    .content {
+        height: 100px;
+        width: 350px;
+        background-image: url(../assets/bg-element-new.png);
+        background-size: 150px 150px;
+        background-repeat: no-repeat;
+        background-position-x: right;
+        background-position-y: center;
+    }
+}

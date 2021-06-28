@@ -1,0 +1,60 @@
+.setup-panel-container
+{
+    width: 52vw;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.indicator {
+    display: flex;
+}
+
+.main-panel
+{
+    max-width: 52vw;
+    height: 60vh;
+    padding: 25px;
+    background-color: white;
+    margin-bottom: 5px;
+
+    //bg image
+    background-image: url(../../assets/setup-bg-element.png);
+    background-size: 400px 400px;
+    background-repeat: no-repeat;
+    background-position-x: right;
+    background-position-y: center;
+}
+
+.step-pending {
+    background-image: url(../../assets/steppending.png);
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.step-done {
+    background-image: url(../../assets/stepdone.png);
+    background-size: 30px 30px;
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+}
+
+.next {
+    background-image: url(../../assets/right-arrow.png);
+    background-size: 48px 48px;
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin-bottom: 40px;
+    margin-right: 10px;
+
+    &:hover {
+        opacity: 0.6;
+    }
+}
+

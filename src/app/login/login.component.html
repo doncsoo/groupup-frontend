@@ -1,0 +1,28 @@
+<div *ngIf="show_info_1" class="info-panel">
+    <div class="inside">
+        <p class="lexend">Hogy résztvehess az eseményben, kérjük jelentkezz be, vagy regisztrálj!</p>
+    </div>
+</div>
+<div class="login-panel-container">
+    <div class="main-panel">
+        <div class="panel-piece"></div>
+        <h1 class="main">LOGIN</h1>
+        <div *ngIf="!loading" class="input-container">
+            <form (ngSubmit)="queryAuth()" #joinForm="ngForm">
+                <label class="lexend">Felhasználó</label>
+                <br>
+                <input name="username" id="username" class="text-input lexend" [(ngModel)]="username">
+                <br>
+                <label class="lexend">Jelszó</label>
+                <br>
+                <input type="password" style="margin-bottom: 10px;" name="password" id="password" class="text-input lexend" [(ngModel)]="password">
+                <br>
+                <a (click)="queryAuth()" class="btn"><span>Bejelentkezés</span></a>
+                <br>
+                <h3 class="mini-margin">Nem vagy még felhasználó?</h3>
+                <a [routerLink]="'/setup'" [queryParams]="{task: 'register'}" class="btn"><span>Regisztráció</span></a>
+            </form>
+        </div>
+        <div *ngIf="loading" class="loading"></div>
+    </div>
+</div>

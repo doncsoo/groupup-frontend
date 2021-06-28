@@ -1,0 +1,10 @@
+<div class="header">
+    <a [routerLink]="['/']"><div class="logo-mini"></div></a>
+    <div class="login-container">
+        <div style="margin-left: 50px">
+            <h4 style="margin-left: 47px" *ngIf="!hasToken()"><a [routerLink]="['/login']">Bejelentkezés</a></h4>
+            <a [routerLink]="['/user']"><img *ngIf="hasToken()" src="../../assets/default-avatar.png" width="42" height="42"></a>
+            <h4 *ngIf="hasToken()"><a [routerLink]="['/user']">Hello {{auth.username}} !</a></h4>
+        </div>
+    </div>
+</div>
