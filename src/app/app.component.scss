@@ -1,3 +1,8 @@
+@keyframes notif-anim {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
 .notif-container {
     position: fixed;
     display: flex;
@@ -20,6 +25,9 @@
     margin-top: 10px;
     margin-bottom: 10px;
     box-shadow: 3px 3px 8px #292929;
+
+    animation-name: notif-anim;
+    animation-duration: 0.75s;
 
     h3 {
         margin: 0;
@@ -50,6 +58,9 @@
     margin-bottom: 10px;
     box-shadow: 3px 3px 8px #292929;
 
+    animation-name: notif-anim;
+    animation-duration: 0.75s;
+
     h3 {
         margin: 0;
         color: white;
@@ -78,6 +89,9 @@
     margin-bottom: 10px;
     background: linear-gradient(270deg, rgba(169,255,0,1) 0%, rgba(19,255,0,1) 25%, rgba(37,166,0,1) 100%);
     box-shadow: 3px 3px 8px #292929;
+
+    animation-name: notif-anim;
+    animation-duration: 0.75s;
 
     h3 {
         margin: 0;
