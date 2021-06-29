@@ -167,6 +167,7 @@ export class AuthService {
       },
       body: JSON.stringify({token: this.token, eventid: inp_eventid, index: inp_index}),
     }).then(r => r.status);
+    if(result == 204) this.cookies.set(inp_eventid + '-didVote', "true")
     return result == 204
   }
 

@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from './authservice.service';
 
 @Component({
@@ -10,6 +10,15 @@ export class AppComponent {
 
   constructor(public auth: AuthService) {}
   title = 'groupup-angular';
+
+  ngOnInit()
+  {
+    if(window.innerWidth < 1000) alert("Jelenleg nem támogatott mobilok és 1000px-nél rövidebb képernyők használata.")
+    window.addEventListener('resize', 
+    function () {
+      if(window.innerWidth < 1000) alert("Jelenleg nem támogatott mobilok és 1000px-nél rövidebb képernyők használata.")
+    })
+  }
 
   getCurrentNotification()
   {

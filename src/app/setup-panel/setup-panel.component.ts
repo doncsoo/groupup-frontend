@@ -16,6 +16,9 @@ export class SetupPanelComponent implements OnInit {
   currentstep : number = 0;
   loading : boolean = false
 
+  //reg-code for identification options
+  regCode: number | null = null
+
   //register
   username: string | null = null
   password: string | null = null
@@ -33,9 +36,14 @@ export class SetupPanelComponent implements OnInit {
     //use ?task=xxxx - in url
     this.route.queryParams.subscribe(params => {
       this.task = params['task'];
+      this.regCode = params['code'];
     });
 
-    if(this.task == "register") this.steps = 3
+    if(this.task == "register")
+    {
+      if(this.auth.token != null) this.router.navigate(["/"])
+      this.steps = 3
+    } 
     else if(this.task == "newevent") this.steps = 5
 
     this.stepStatus = Array(this.steps)
@@ -51,7 +59,7 @@ export class SetupPanelComponent implements OnInit {
 
   async sendRegister() : Promise<void> {
     this.loading = true
-    let json = {"username": this.username,"fullname": this.fullname,"password": this.password}
+    let json = {"username": this.username,"fullname": this.fullname,"password": this.password, "code": this.regCode}
     let result = await this.auth.register(json)
     if(result == true) this.advanceSetup()
     else

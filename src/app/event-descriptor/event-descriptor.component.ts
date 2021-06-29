@@ -49,6 +49,11 @@ export class EventDescriptorComponent implements OnInit {
     this.imgsrc = this.auth.getImgUrl(this.eventId)
     this.response = this.getResponse()
     this.getFormattedDate()
+    //voting check
+    if(this.event.voting != null)
+    {
+      this.didVote = this.event.voting.voted.includes(this.auth.userid)
+    }
     let attendants = this.event.attendants.map((item) => { return item.userid })
     this.attendantsData = await this.auth.getAttendants(attendants)
     console.log(this.attendantsData)

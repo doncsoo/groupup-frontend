@@ -98,7 +98,7 @@ $max-wid: 52vw;
 
 .response {
     max-width: 52vw;
-    height: 150px;
+    min-height: 150px;
     padding: 10px;
     background-color: white;
     background: linear-gradient(270deg, rgba(0,250,255,1) 0%, rgba(0,130,255,1) 60%, rgba(0,4,166,1) 100%);
