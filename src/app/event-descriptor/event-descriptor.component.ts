@@ -97,25 +97,27 @@ export class EventDescriptorComponent implements OnInit {
     }
   }
 
-  respondWithYes()
+  async respondWithYes()
   {
-    let result = this.auth.respond(this.eventId, true)
-    if(result)
+    let result = await this.auth.respond(this.eventId, true)
+    if(result === true)
     {
       this.response = "accept"
       this.auth.setNotification("good", "A válaszod frissítve!")
     }
+    else if (result == "Not vaccinated") this.auth.setNotification("bad", "Sajnos nem rendelkezel oltási igazolvánnyal hogy részt vehess!")
     else this.auth.setNotification("bad", "Hiba történt! Kérem próbálja később!")
   }
 
-  respondWithNo()
+  async respondWithNo()
   {
-    let result = this.auth.respond(this.eventId, false)
-    if(result)
+    let result = await this.auth.respond(this.eventId, false)
+    if(result === true)
     {
       this.response = "no"
       this.auth.setNotification("good", "A válaszod frissítve!")
     }
+    else if (result == "Not vaccinated") this.auth.setNotification("bad", "Sajnos nem rendelkezel oltási igazolvánnyal hogy részt vehess!")
     else this.auth.setNotification("bad", "Hiba történt! Kérem próbálja később!")
   }
 

@@ -54,7 +54,7 @@
         </div>
         <a (click)="vote()" *ngIf="!didVote" class="btn"><span>Szavazás</span></a>
     </div>
-    <div *ngIf="!loading()" class="announcement-div">
+    <div *ngIf="!loading() && event.announcements != null" class="announcement-div">
         <h1>BEJELENTÉSEK</h1>
         <div *ngFor="let ann of event.announcements" class="announcement">
             <h5>{{ ann.timestamp | dateConverter }}</h5>

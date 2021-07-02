@@ -148,14 +148,22 @@ export class AuthService {
 
   async respond(inp_eventid, inp_response)
   {
+    var error = null
     let result = await fetch(this.serverhost + "/respond", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({token: this.token, eventid: inp_eventid, response: inp_response}),
-    }).then(r => r.status);
-    return result == 204
+    }).then(async r => {
+      if(r.status == 403)
+      {
+        error = await r.text()
+      }
+      return r.status
+    });
+    if(error == null) return result == 204
+    else return error
   }
 
   async vote(inp_eventid, inp_index)
