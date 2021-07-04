@@ -6,9 +6,11 @@
 }
 
 @font-face {
-    font-family: GothamBold;
-    src: url(assets/GothamBold.ttf) format('truetype');
-    src: url(assets/GothamBold.woff) format('woff');
+  font-family: 'gothambold';
+  src: url(/assets/gothambold.woff2) format('woff2');
+  src: url(/assets/gothambold.woff) format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 body {
@@ -73,7 +75,7 @@ div {
 
 h1, h2, h3, h4, h5, h6
 {
-    font-family: GothamBold, sans-serif;
+    font-family: 'gothambold', sans-serif;
 }
 
 .text-input
