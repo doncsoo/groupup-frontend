@@ -20,7 +20,8 @@
                 <a (click)="queryAuth()" class="btn"><span>Bejelentkezés</span></a>
                 <br>
                 <h3 class="mini-margin">Nem vagy még felhasználó?</h3>
-                <a [routerLink]="'/setup'" [queryParams]="{task: 'register'}" class="btn"><span>Regisztráció</span></a>
+                <a [routerLink]="'/setup'" [queryParams]="{task: 'register'}" class="btn reg-desktop"><span>Regisztráció</span></a>
+                <p class="lexend reg-mobile">Regisztrálj asztali számítógépről <br> és csatlakozz eseményekhez mobilról!</p>
             </form>
         </div>
         <div *ngIf="loading" class="loading"></div>

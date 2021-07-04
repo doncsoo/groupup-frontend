@@ -27,8 +27,7 @@ const routes: Routes = [
 const GroupUpTooltipOptions: TooltipOptions = {
   'show-delay': 750,
   'tooltip-class': 'lexend',
-  'max-width': 700,
-  'displayTouchscreen': false
+  'max-width': 700
 }
 
 @NgModule({

@@ -3,9 +3,6 @@
         <div class="panel-piece"></div>
         <div class="colorbase"><img [src]="imgsrc" height="250" width="400"></div>
         <h1 class="title">{{ event.title }}</h1>
-        <div class="desc-div">
-            <p class="lexend">{{ event.description }}</p>
-        </div>
         <div class="date-div">
             <div *ngIf="event.date != null" style="padding: 5px;">
                 <h2>{{ monthday }}</h2>
@@ -15,6 +12,9 @@
                 <h4>Nincs meghatározva</h4>
             </div>
             <div class="calendar"></div>
+        </div>
+        <div class="desc-div">
+            <p class="lexend">{{ event.description }}</p>
         </div>
         <div>
             <a (click)="showMore()" class="btn"><span>Részletek</span></a>
@@ -63,10 +63,17 @@
     </div>
     <div *ngIf="attendantsData != null" class="attendants">
         <div tooltip="Résztvevők" class="attend-logo"></div>
-        <div class="person-list">
+        <div class="person-list-minimized">
             <div *ngFor="let attendant of attendantsData" class="person">
                 <img [tooltip]="attendant.fullname" src="../../assets/default-avatar.png" width="60" height="60">
                 <div [class]="determineAttendance(attendant)"></div>
+            </div>
+        </div>
+        <div class="person-list">
+            <div *ngFor="let attendant of attendantsData" class="person">
+                <img src="../../assets/default-avatar.png" width="60" height="60">
+                <div [class]="determineAttendance(attendant)"></div>
+                <h4>{{attendant.fullname}}</h4>
             </div>
         </div>
     </div>

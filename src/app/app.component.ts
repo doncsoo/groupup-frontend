@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from './authservice.service';
 
 @Component({
@@ -8,16 +9,16 @@ import { AuthService } from './authservice.service';
 })
 export class AppComponent {
 
-  constructor(public auth: AuthService) {}
+  constructor(public auth: AuthService, public cookies : CookieService) {}
   title = 'groupup-angular';
 
   ngOnInit()
   {
-    if(window.innerWidth < 1000) alert("Jelenleg nem támogatott mobilok és 1000px-nél rövidebb képernyők használata.")
-    window.addEventListener('resize', 
-    function () {
-      if(window.innerWidth < 1000) alert("Jelenleg nem támogatott mobilok és 1000px-nél rövidebb képernyők használata.")
-    })
+    if(window.innerWidth < 1000 && this.cookies.check('mobile-warning') == false)
+    {
+      alert("A mobilos nézet jelenleg fejlesztés alatt van. Kérlek szólj ha valami nem működik.")
+      this.cookies.set('mobile-warning', 'shown')
+    }
   }
 
   getCurrentNotification()

@@ -17,3 +17,15 @@
         text-shadow: 2px 2px #292929;
     }
 }
+
+@media screen and (max-width: 1000px) {
+
+    .user-panel-container
+    {
+        width: 95vw;
+    }
+
+    .user-manager {
+        max-width: 95vw;
+    }
+}

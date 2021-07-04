@@ -52,6 +52,7 @@ div {
     width: 300px;
     height: 50px;
     position: fixed;
+    top: 0;
     right: 0;
 }
 
@@ -176,7 +177,7 @@ a {
   color: black;
 }
 
-@media screen and (max-width: 1000px) {
+/*@media screen and (max-width: 1000px) {
   * {
     display: none;
   }
@@ -184,5 +185,36 @@ a {
   .not-supported {
     display: block;
     color: black;
+  }
+}*/
+
+@media screen and (max-width: 1000px) {
+
+  .logo-mini
+  {
+      background-image: url(assets/newlogo.png);
+      background-size: 125px 125px;
+      width: 125px;
+      height: 125px;
+      position: fixed;
+      left: 0;
+      top: 0;
+      background-repeat: no-repeat;
+  }
+
+  body {
+    background-color: #001b59;
+    background-image: url(assets/bg-element-new.png);
+    background-repeat: no-repeat;
+    background-position-x: center;
+    background-position-y: center;
+    background-attachment: fixed;
+    background-size: 300px 300px;
+  }
+
+  .login-container
+  {
+    width: 250px;
+    height: 50px;
   }
 }

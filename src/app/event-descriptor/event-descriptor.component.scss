@@ -25,7 +25,7 @@ $max-wid: 52vw;
     max-width: calc(52vw - 10px);
     border: 5px solid white;
     width: 52vw;
-    height: 150px;
+    min-height: 150px;
     border-radius: 13px;
 }
 
@@ -211,7 +211,7 @@ $max-wid: 52vw;
     }
 }
 
-.person-list {
+.person-list-minimized {
     margin-left: 15px;
     overflow: auto;
     display: flex;
@@ -232,6 +232,42 @@ $max-wid: 52vw;
             right: 20px;
         }
     }
+}
+
+.person-list {
+    margin-left: 15px;
+    
+
+    .person {
+        margin: 5px;
+        display: flex;
+        min-width: 92px;
+        height: 68px;
+        align-items: center;
+
+        .accept, .no, .pending
+        {
+            background-size: 32px 32px;
+            width: 32px;
+            height: 32px;
+            position: relative;
+            right: 20px;
+            top: 15px;
+        }
+
+        img, h4 {
+            display: inline;
+        }
+
+        h4 {
+            color: white;
+            margin: 0;
+            display: relative;
+            text-shadow: 2px 2px #292929;
+        }
+    }
+
+    display: none;
 }
 .modal {
     display: none;
@@ -264,5 +300,79 @@ $max-wid: 52vw;
           tr:nth-child(even) {
             background-color: #dddddd;
           }
+    }
+}
+
+@media screen and (max-width: 1000px) {
+
+    .event-descriptor, .event-desc-container, .response, .vote-div, .announcement-div {
+        width: 95vw;
+        max-width: 95vw;
+
+        .announcement
+        {
+            max-width: 88vw;
+        }
+    }
+
+    .response{
+        h2 {
+            font-size: 1.15em;
+        }
+    }
+
+    .attendants {
+        max-width: calc(95vw - 10px);
+        width: calc(95vw - 10px);
+    }
+
+    .desc-div {
+        display: inline-block;
+        width: 90vw;
+        padding: 5px;
+    }
+
+    .colorbase {
+        height: 200px;
+        width: 90vw;
+        background-color: blue;
+        box-shadow: 3px 3px 8px #292929;
+        z-index: 1;
+        position: relative;
+    }
+
+    .date-div {
+        position: relative;
+        margin: 10px;
+        display: flex;
+    
+        * {
+            margin: 0;
+        }
+    
+        h4 {
+            color: grey;
+        }
+    }
+
+    .modal {
+        .extra-info {
+            max-width: 90vw;
+            width: 90vw;
+            padding: 15px;
+            overflow: auto;
+        }
+
+        table {
+            width: 70%;
+        }
+    }
+
+    .person-list-minimized {
+        display: none;
+    }
+
+    .person-list {
+        display: block;
     }
 }

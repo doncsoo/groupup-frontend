@@ -113,3 +113,11 @@
         background-position-y: center;
     }
 }
+
+@media screen and (max-width: 350px) {
+
+    .notif-container, .notification-bad, .notification-good, .notification-normal{
+        max-width: 100vw;
+        width: 100vw;
+    }
+}

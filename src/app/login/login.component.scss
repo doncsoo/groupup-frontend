@@ -76,3 +76,40 @@
     }
     
 }
+
+.reg-mobile {
+    display: none;
+}
+
+.reg-desktop {
+    display: block;
+}
+
+@media screen and (max-width: 1000px) {
+
+    .main-panel, .login-panel-container {
+        max-width: 95vw;
+        width: 95vw;
+        height: 75vh;
+    }
+
+    .info-panel {
+        width: 95vw;
+        max-width: 95vw;
+    }
+
+    .reg-desktop {
+        display: none;
+    }
+
+    .reg-mobile {
+        display: block;
+    }
+}
+
+@media screen and (max-height: 600px) {
+
+    .main {
+        margin-bottom: 25px;
+    }
+}

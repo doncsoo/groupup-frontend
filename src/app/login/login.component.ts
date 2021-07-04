@@ -30,7 +30,7 @@ export class LoginComponent {
     if(result == true)
     {
       this.router.navigate(["/"])
-      this.auth.setNotification("normal", "Sikeresen bejelentkeztél! Üdv újra!")
+      this.auth.setNotification("normal", "Sikeresen bejelentkeztél!")
     }
     else
     {
