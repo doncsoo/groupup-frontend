@@ -6,10 +6,14 @@
 }
 
 @font-face {
-  font-family: 'gothambold';
+  font-family: 'gothambold1';
+  src: url(/assets/GothamBold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'gothambold2';
   src: url(/assets/gothambold.woff2) format('woff2'),
-       url(/assets/gothambold.woff) format('woff'),
-       url(/assets/GothamBold.ttf) format('truetype');
+       url(/assets/gothambold.woff) format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -76,7 +80,14 @@ div {
 
 h1, h2, h3, h4, h5, h6
 {
-    font-family: 'gothambold', sans-serif;
+    font-family: 'gothambold1', sans-serif;
+}
+
+_::-webkit-full-page-media, _:future, :root .safari_only {
+  h1, h2, h3, h4, h5, h6
+  {
+      font-family: 'gothambold2', sans-serif;
+  }
 }
 
 .text-input
