@@ -83,13 +83,6 @@ h1, h2, h3, h4, h5, h6
     font-family: 'gothambold1', sans-serif;
 }
 
-_::-webkit-full-page-media, _:future, :root .safari_only {
-  h1, h2, h3, h4, h5, h6
-  {
-      font-family: 'gothambold2', sans-serif;
-  }
-}
-
 .text-input
 {
   height: 40px;
@@ -231,5 +224,10 @@ a {
   {
     width: 250px;
     height: 50px;
+  }
+
+  h1, h2, h3, h4, h5, h6
+  {
+      font-family: 'gothambold2', sans-serif;
   }
 }
