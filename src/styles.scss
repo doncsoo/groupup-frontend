@@ -7,8 +7,9 @@
 
 @font-face {
   font-family: 'gothambold';
-  src: url(/assets/gothambold.woff2) format('woff2');
-  src: url(/assets/gothambold.woff) format('woff');
+  src: url(/assets/gothambold.woff2) format('woff2'),
+       url(/assets/gothambold.woff) format('woff'),
+       url(/assets/GothamBold.ttf) format('truetype');
   font-weight: normal;
   font-style: normal;
 }
