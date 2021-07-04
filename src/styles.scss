@@ -80,7 +80,7 @@ div {
 
 h1, h2, h3, h4, h5, h6
 {
-    font-family: 'gothambold1', sans-serif;
+  font-family: 'gothambold1', sans-serif;
 }
 
 .text-input
@@ -108,7 +108,7 @@ a:hover, a:visited {
     color: white;
     font-size: 14px;
     text-align: center;
-    font-family: GothamBold;
+    font-family: 'Lexend Deca', sans-serif;
     
     &:after {
       position: absolute;
@@ -185,17 +185,6 @@ a {
   color: black;
 }
 
-/*@media screen and (max-width: 1000px) {
-  * {
-    display: none;
-  }
-
-  .not-supported {
-    display: block;
-    color: black;
-  }
-}*/
-
 @media screen and (max-width: 1000px) {
 
   .logo-mini
@@ -227,7 +216,7 @@ a {
   }
 
   h1, h2, h3, h4, h5, h6
-  {
-      font-family: 'gothambold2', sans-serif;
-  }
+{
+  font-family: 'Lexend Deca', sans-serif;
+}
 }
