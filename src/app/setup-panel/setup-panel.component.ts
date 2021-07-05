@@ -26,6 +26,26 @@ export class SetupPanelComponent implements OnInit {
   vaccinated: boolean = false
   vaccinatedTimestamp : boolean | string | null = null
 
+  //newevent
+  event: any = 
+  {
+    title:null,
+    owner:null,
+    attendants:[],
+    description:"",
+    date:null,
+    info:{
+       price:null,
+       website:null,
+       vaccinationRequired:false,
+       entryInfo:null,
+       travelInfo:null,
+       duration:null
+    },
+    voting:null,
+    announcements:[]
+ }
+
   constructor(
     private auth : AuthService,
     private route: ActivatedRoute,

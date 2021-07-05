@@ -145,7 +145,7 @@ export class EventDescriptorComponent implements OnInit {
             return "accept"
           case false:
             return "no"
-          default:
+          case null:
             return "pending"
         }
       }

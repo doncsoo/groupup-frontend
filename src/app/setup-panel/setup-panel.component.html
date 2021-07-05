@@ -43,7 +43,64 @@
             <div *ngIf="loading" class="loading"></div>
         </div>
         <div *ngIf="task == 'newevent'">
-            <h3>New Event</h3>
+            <div *ngIf="!loading && currentstep == 0">
+                <h2 class="lexend">Gyűljünk össze!</h2>
+                <label class="lexend">Mi az esemény neve?
+                </label>
+                <br>
+                <input name="eventname" id="eventname" class="text-input lexend" [(ngModel)]="event.title">
+                <br>
+                <br>
+                <br>
+                <label class="lexend">Mikor lesz az esemény?</label>
+                <br>
+                <input type="datetime-local" [(ngModel)]="event.date">
+                <p class="lexend" style="color:gray">Hagyd üresen ezt a mezőt, ha még nem tudod a dátumot.</p>
+                <br>
+                <label class="lexend">Mondj pár szót az eseményről.</label>
+                <br>
+                <textarea class="textarea-input lexend" name="eventdesc" id="eventdesc" [(ngModel)]="event.description" rows="4" cols="40"></textarea>
+                <div (click)="advanceSetup()" class="next"></div>
+            </div>
+            <div *ngIf="!loading && currentstep == 1">
+                <h2 class="lexend">Jöjjenek a részletek.</h2>
+                <p class="lexend" style="color:gray">Amit nem ismersz, hagyd üresen.</p>
+                <label class="lexend">Esemény ára</label>
+                <br>
+                <input type="number" name="price" id="price" class="text-input lexend" [(ngModel)]="event.info.price">
+                <br>
+                <label class="lexend">Esemény időtartama</label>
+                <br>
+                <input type="text" name="duration" id="duration" class="text-input lexend" [(ngModel)]="event.info.duration">
+                <br>
+                <label class="lexend">Weboldal</label>
+                <br>
+                <input name="website" id="website" class="text-input lexend" [(ngModel)]="event.info.website">
+                <br>
+                <br>
+                <input type="checkbox" [(ngModel)]="vaccinated">
+                <h3 style="display:inline">Szükséges védettségi igazolvány.</h3>
+                <br>
+                <div (click)="advanceSetup()" class="next"></div>
+            </div>
+            <div *ngIf="!loading && currentstep == 2">
+                <h2 class="lexend">Jöjjenek a részletek csapó 2.</h2>
+                <p class="lexend" style="color:gray">Amit nem ismersz, hagyd üresen.</p>
+                <label class="lexend">Belépési információk</label>
+                <br>
+                <textarea class="textarea-input lexend" name="entryinfo" id="entryinfo" [(ngModel)]="event.info.entryInfo" rows="4" cols="40"></textarea>
+                <br>
+                <label class="lexend">Utazási információk</label>
+                <br>
+                <textarea class="textarea-input lexend" name="travelinfo" id="travelinfo" [(ngModel)]="event.info.travelInfo" rows="4" cols="40"></textarea>
+                <br>
+                <div (click)="advanceSetup()" class="next"></div>
+            </div>
+            <div *ngIf="!loading && currentstep == 3">
+                <h2 class="lexend">Tölts fel egy logó képet az eseményről!</h2>
+                <p class="lexend" style="color:gray">Lehetőleg 2-3 MB-t nem meghaladó fájlt tölts fel.</p>
+                <input class="lexend" type="file" id="fileupload" accept="image/*">
+            </div>
         </div>
     </div>
     <div class="indicator">

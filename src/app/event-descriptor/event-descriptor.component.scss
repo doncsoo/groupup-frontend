@@ -130,6 +130,16 @@ $max-wid: 52vw;
     cursor: pointer;
 }
 
+.pending
+{
+    background-image: url(../../assets/pending.png);
+    background-size: 125px 125px;
+    width: 125px;
+    height: 125px;
+    display: inline-block;
+    cursor: pointer;
+}
+
 .ask-text {
     margin: 0;
     text-align: center;

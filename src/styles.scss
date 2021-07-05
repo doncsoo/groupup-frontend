@@ -90,6 +90,12 @@ h1, h2, h3, h4, h5, h6
   font-size: 20px;
 }
 
+.textarea-input
+{
+  border-radius: 8px;
+  font-size: 20px;
+}
+
 a:hover, a:visited {
     color: white;
     outline: none;
@@ -185,6 +191,18 @@ a {
   color: black;
 }
 
+.new-event
+{
+    background-image: url(assets/newevent.png);
+    background-size: 175px 175px;
+    width: 175px;
+    height: 175px;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    cursor: pointer;
+}
+
 @media screen and (max-width: 1000px) {
 
   .logo-mini
@@ -218,5 +236,9 @@ a {
   h1, h2, h3, h4, h5, h6
 {
   font-family: 'Lexend Deca', sans-serif;
+}
+
+.new-event {
+  display: none;
 }
 }

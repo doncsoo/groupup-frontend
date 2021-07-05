@@ -19,4 +19,9 @@ export class EventlistComponent implements OnInit {
     this.events = this.auth.events
   }
 
+  hamarosan()
+  {
+    alert("Hamarosan!")
+  }
+
 }

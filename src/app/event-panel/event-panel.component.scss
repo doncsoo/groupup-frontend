@@ -67,6 +67,20 @@ div {
     width: 200px;
 }
 
+.calendar
+{
+    background-image: url(../../assets/calendar.png);
+    background-size: 24px 24px;
+    width: 24px;
+    height: 24px;
+    display: inline-block;
+}
+
+h5 {
+    display: inline-block;
+    margin: 0;
+}
+
 @media screen and (max-width: 1000px) {
 
     .base {
@@ -102,7 +116,6 @@ div {
     height: 65px;
 }
 .title {
-    top: 65px;
     float: none;
 }
 }
