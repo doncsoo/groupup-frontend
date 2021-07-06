@@ -92,6 +92,16 @@
               <td>Esemény időtartama</td>
               <td>{{ event.info.duration }}</td>
             </tr>
+            <tr *ngIf="event.info.location != undefined">
+                <td>Helyszín</td>
+                <td>{{ event.info.location }}</td>
+            </tr>
+            <tr *ngIf="event.info.payment != undefined">
+                <td>Fizetési lehetőségek</td>
+                <td>
+                    <div *ngFor="let option of event.info.payment" [class]="option" [tooltip]="getPaymentDesc(option)"></div>
+                </td>
+            </tr>
             <tr *ngIf="event.info.website != undefined">
               <td>Weboldal</td>
               <td><a target="_blank" [href]="event.info.website">{{ event.info.website }}</a></td>

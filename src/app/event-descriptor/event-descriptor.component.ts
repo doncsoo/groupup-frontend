@@ -71,6 +71,18 @@ export class EventDescriptorComponent implements OnInit {
     }
   }
 
+  getPaymentDesc(payment) {
+    switch(payment)
+    {
+      case "bankcard":
+        return "Bankkártya"
+      case "cash":
+        return "Készpénz"
+      case "szépcard":
+        return "Széchényi Pihenőkártya"
+    }
+  }
+
   resetResponse()
   {
     this.response = "pending"

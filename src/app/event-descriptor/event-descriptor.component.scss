@@ -177,6 +177,36 @@ $max-wid: 52vw;
     display: inline-block;
 }
 
+.bankcard
+{
+    background-image: url(../../assets/credit-card.png);
+    background-size: 32px 32px;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.cash
+{
+    background-image: url(../../assets/money.png);
+    background-size: 32px 32px;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
+.szépcard
+{
+    background-image: url(../../assets/szépcard.png);
+    background-size: 32px 32px;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 5px;
+}
+
 .vote-div {
     display: block;
     max-width: 52vw;
