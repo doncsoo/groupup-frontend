@@ -63,6 +63,7 @@
     </div>
     <div *ngIf="attendantsData != null" class="attendants">
         <div tooltip="Résztvevők" class="attend-logo"></div>
+        <a *ngIf="isOwner()" (click)="showInvite()" class="btn disp-top-right"><span>Meghívás</span></a>
         <div class="person-list-minimized">
             <div *ngFor="let attendant of attendantsData" class="person">
                 <img [tooltip]="attendant.fullname" src="../../assets/default-avatar.png" width="60" height="60">
@@ -92,6 +93,10 @@
               <td>Esemény időtartama</td>
               <td>{{ event.info.duration }}</td>
             </tr>
+            <tr *ngIf="event.visibility != undefined">
+                <td>Esemény láthatósága</td>
+                <td>{{ event.visiblity == 'public' ? 'Publikus' : 'Privát' }}</td>
+            </tr>
             <tr *ngIf="event.info.location != undefined">
                 <td>Helyszín</td>
                 <td>{{ event.info.location }}</td>
@@ -114,12 +119,34 @@
               <td>Belépési információk</td>
               <td>{{ event.info.entryInfo }}</td>
             </tr>
-            <tr *ngIf="event.info.entryInfo != undefined">
+            <tr *ngIf="event.info.travelInfo != undefined">
               <td>Utazási információk</td>
               <td>{{ event.info.travelInfo }}</td>
             </tr>
           </table>
           <a (click)="showMore()" class="btn"><span>Vissza</span></a>
+    </div>
+</div>
+
+<div [style.display]="invite_shown" class="modal">
+    <div class="extra-info">
+        <h1>Meghívás</h1>
+        <label class="lexend">Meghívandó személy</label>
+        <br>
+        <input name="search" id="search" class="text-input lexend" [(ngModel)]="search">
+        <br>
+        <a (click)="searchForUsers()" class="btn"><span>Keresés</span></a>
+        <br>
+        <div class="foundusers">
+            <div *ngFor="let user of found_users">
+                <input style="display:inline-block;" type="checkbox" [value]="user._id" (change)="modifyInvite($event.target.value)">
+                <img style="display:inline-block;" src="../../assets/default-avatar.png" width="40" height="40">
+                <h4 style="display:inline-block;">{{user.fullname}}</h4>
+            </div>
+        </div>
+        <br>
+        <a (click)="invite()" class="btn"><span>Meghívás</span></a>
+        <a (click)="showInvite()" class="btn"><span>Vissza</span></a>
     </div>
 </div>
 

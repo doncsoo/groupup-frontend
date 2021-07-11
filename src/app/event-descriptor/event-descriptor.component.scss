@@ -47,6 +47,7 @@ $max-wid: 52vw;
     height: 32px;
     position: relative;
     margin: 10px;
+    display: inline-block;
 }
 
 .desc-div {
@@ -162,8 +163,6 @@ $max-wid: 52vw;
 
 .disp-top-right {
     position: relative;
-    margin-top: 10px;
-    margin-bottom: 10px;
     top: 0;
     float: right;
 }

@@ -29,6 +29,13 @@ export class EventDescriptorComponent implements OnInit {
   //more detail related
   shown : string = "none"
 
+  //invited related
+  invite_shown : string = "none"
+  found_users : any[] = [];
+  search : string | null = null
+  selected_invite : string[] = []
+  invite_loading : boolean = false
+
   constructor(
     private route: ActivatedRoute,
     private router: Router,
@@ -168,5 +175,41 @@ export class EventDescriptorComponent implements OnInit {
   {
     if(this.shown == "none") this.shown = "block"
     else this.shown = "none"
+  }
+
+  showInvite()
+  {
+    if(this.invite_shown == "none") this.invite_shown = "block"
+    else this.invite_shown = "none"
+  }
+
+  async searchForUsers()
+  {
+    let result = await this.auth.searchUser(this.search)
+    const flat_attendants = this.event.attendants.map(a => a.userid)
+    console.log(flat_attendants)
+    this.found_users = result.filter(u => !flat_attendants.includes(u._id))
+  }
+
+  isOwner()
+  {
+    return this.event.owner == this.auth.userid
+  }
+
+  modifyInvite(userid)
+  {
+    if(this.selected_invite.includes(userid)) this.selected_invite = this.selected_invite.filter(id => userid != id)
+    else this.selected_invite.push(userid)
+    console.log(this.selected_invite)
+  }
+
+  async invite()
+  {
+    this.invite_loading = true
+    let result = await this.auth.invite(this.eventId, this.selected_invite)
+    this.invite_loading = false
+    this.invite_shown = "none"
+    if(result == true) this.auth.setNotification("good", "A meghívás sikeres!")
+    else this.auth.setNotification("bad", "Hiba történt a meghívás során!")
   }
 }

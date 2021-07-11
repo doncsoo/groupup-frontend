@@ -214,4 +214,22 @@ export class AuthService {
     this.currentNotification = {class: "notification-" + inp_class, message: inp_message}
     setTimeout(() => this.currentNotification = null, 5000)
   }
+
+  async searchUser(term)
+  {
+    let result = await fetch(this.serverhost + "/users/search/" + term).then(r => r.json());
+    return result;
+  }
+
+  async invite(inp_eventid, inp_invited)
+  {
+    let result = await fetch(this.serverhost + "/invite", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({token: this.token, eventid: inp_eventid, invited: inp_invited}),
+    }).then(r => r.status);
+    return result == 204
+  }
 }
